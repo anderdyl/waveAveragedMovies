@@ -10,7 +10,7 @@ def vBar(stack,ystack,xstack):
 
     y = np.append([0],[(ystack-ystack[0])])
 
-    Twin = 120
+    Twin = 64
     N = len(ystack)
     M = Twin
     dt = 0.5
@@ -101,6 +101,7 @@ def vBar(stack,ystack,xstack):
         output['resnorm'] = np.nan
         output['chi2'] = np.nan
         output['prob'] = np.nan
+        output['QCspan'] = np.nan
         output['SE'] = np.nan
         output['ci'] = np.nan
         output['cispan'] = np.nan
@@ -190,6 +191,7 @@ def vBar(stack,ystack,xstack):
         V4 = np.nan
 
 
+
     def plotVbar(block,y,S,f,k,Sv,v,V4,fitted,popt):
         fig, axs = plt.subplots(2,2)
         axs[0,0].imshow(block,origin='upper', extent=[y[0], y[-1], len(block)/2, 0])
@@ -224,6 +226,7 @@ def vBar(stack,ystack,xstack):
     output['residuals'] = residuals
     output['resnorm'] = resnorm
     output['chi2'] = chiSquare
+    output['QCspan'] = QCspan
     output['prob'] = prob
     output['SE'] = SE
     output['ci'] = ci
